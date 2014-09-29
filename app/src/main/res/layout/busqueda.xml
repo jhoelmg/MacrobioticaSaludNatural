@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivTitle"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <RelativeLayout
+        android:layout_width="211dp"
+        android:layout_height="50dp"
+        android:background="#94000000"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txbBuscar"
+            android:background="#ffffffff"
+            android:height="25dp"
+            android:width="150dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_alignParentBottom="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar"
+            android:id="@+id/btnBuscar"
+            android:background="#87000000"
+            android:textColor="#ffffffff"
+            android:height="25dp"
+            android:width="40dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_alignTop="@+id/txbBuscar"
+            android:layout_toRightOf="@+id/txbBuscar"
+            android:layout_toEndOf="@+id/txbBuscar"
+            android:onClick="btnBuscarOnClick"/>
+
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:id="@+id/tbProductos"
+        android:gravity="end">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/trEncabezado">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Producto"
+                android:id="@+id/textView"
+                android:layout_column="0"
+                android:textColor="#ffffffff"
+                android:background="#bf2ecc54"
+                android:width="120dp"
+                android:height="25dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:gravity="center_vertical|center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cantidad"
+                android:id="@+id/textView2"
+                android:layout_column="2"
+                android:textColor="#ffffffff"
+                android:width="80dp"
+                android:height="25dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:gravity="center_vertical|center_horizontal"
+                android:background="#bf2ecc54" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ver"
+                android:id="@+id/textView3"
+                android:layout_column="2"
+                android:textColor="#ffffffff"
+                android:background="#bf2ecc54"
+                android:width="65dp"
+                android:height="25dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:gravity="center_vertical|center_horizontal" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <ScrollView
+        android:layout_width="270dp"
+        android:layout_height="220dp"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal" >
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="245dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/relativeLayout">
+
+        <Button
+            android:layout_width="104dp"
+            android:layout_height="wrap_content"
+            android:text="Atras"
+            android:id="@+id/btnAtrasBusqueda"
+            android:layout_marginLeft="0dp"
+            android:textAlignment="center"
+            android:textColor="#ffffffff"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:background="#ff4b93ff"
+            android:width="60dp"
+            android:height="25dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_alignParentTop="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

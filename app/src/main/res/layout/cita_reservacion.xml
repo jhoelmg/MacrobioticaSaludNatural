@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <TableLayout
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="#94000000">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:text="Dia"
+                android:id="@+id/textView"
+                android:layout_column="0"
+                android:textAlignment="gravity"
+                android:textSize="20dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ffffffff" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="Mes"
+                android:id="@+id/textView2"
+                android:layout_column="1"
+                android:textSize="20dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ffffffff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Año"
+                android:id="@+id/textView3"
+                android:layout_column="2"
+                android:textSize="20dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ffffffff" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center">
+
+            <Spinner
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:id="@+id/spDia"
+                android:layout_column="0"
+                android:layout_gravity="center_horizontal"
+                android:spinnerMode="dropdown"
+                android:entries="@array/dias" />
+
+            <Spinner
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:id="@+id/spMes"
+                android:layout_column="1"
+                android:layout_gravity="center_horizontal"
+                android:spinnerMode="dropdown"
+                android:entries="@array/meses"/>
+
+            <Spinner
+                android:layout_width="115dp"
+                android:layout_height="70dp"
+                android:id="@+id/spAnio"
+                android:layout_column="2"
+                android:layout_gravity="center_horizontal"
+                android:spinnerMode="dropdown"
+                android:entries="@array/anios" />
+        </TableRow>
+
+    </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <Spinner
+            android:layout_width="206dp"
+            android:layout_height="36dp"
+            android:id="@+id/spSucursal"
+            android:layout_toEndOf="@+id/imageView2"
+            android:gravity="center_vertical|center"
+            android:spinnerMode="dropdown"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/imageView2"
+            android:layout_alignBottom="@+id/imageView2"
+            android:layout_marginTop="8dp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/imageView2"
+            android:background="@drawable/localizacion"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#c9932e"
+        android:layout_weight="0">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/imageView3"
+            android:background="@drawable/hora"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+
+        <Spinner
+            android:layout_width="206dp"
+            android:layout_height="36dp"
+            android:id="@+id/spHora"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="false"
+            android:layout_toRightOf="@+id/imageView3"
+            android:layout_toEndOf="@+id/imageView3"
+            android:layout_alignParentStart="false"
+            android:gravity="center_vertical|center"
+            android:spinnerMode="dropdown"
+            android:layout_alignTop="@+id/imageView3"
+            android:layout_alignBottom="@+id/imageView3" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="245dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="85dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="104dp"
+            android:layout_height="30dp"
+            android:text="Atras"
+            android:id="@+id/btnAtrasBusqueda"
+            android:layout_marginLeft="0dp"
+            android:textAlignment="center"
+            android:textColor="#ffffffff"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:background="#ff4b93ff"
+            android:width="60dp"
+            android:height="25dp"
+            android:gravity="center_vertical|center_horizontal" />
+
+        <Button
+            android:layout_width="104dp"
+            android:layout_height="30dp"
+            android:text="Reservar"
+            android:id="@+id/btnReservarCita"
+            android:textAlignment="center"
+            android:textColor="#ffffffff"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:background="#ffff3a4c"
+            android:width="60dp"
+            android:height="25dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/btnAtrasBusqueda"
+            android:layout_toEndOf="@+id/btnAtrasBusqueda"
+            android:layout_marginLeft="20dp" />
+    </RelativeLayout>
+
+</LinearLayout>

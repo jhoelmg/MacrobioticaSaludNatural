@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivTitleConsultar"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Síntomas"
+        android:id="@+id/textView"
+        android:textColor="#ffffffff"
+        android:background="#bf2ecc54"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:width="100dp"
+        android:height="30dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/trEncabezado"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Síntoma"
+            android:id="@+id/textView3"
+            android:layout_column="0"
+            android:textColor="#ffffffff"
+            android:background="#c9932e"
+            android:width="120dp"
+            android:height="25dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:gravity="center_vertical|center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Presente"
+            android:id="@+id/textView4"
+            android:layout_column="1"
+            android:textColor="#ffffffff"
+            android:width="80dp"
+            android:height="25dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:gravity="center_vertical|center_horizontal"
+            android:background="#8e000000" />
+
+    </TableRow>
+
+    <ScrollView
+        android:layout_width="250dp"
+        android:layout_height="220dp"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal"
+        android:fillViewport="false">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tbSintomas"
+            android:gravity="left">
+
+        </TableLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="245dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/relativeLayout">
+
+        <Button
+            android:layout_width="104dp"
+            android:layout_height="30dp"
+            android:text="Atrás"
+            android:id="@+id/btnAtrasConsulta"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_alignWithParentIfMissing="false"
+            android:textColor="#ffffffff"
+            android:textAlignment="center"
+            android:background="#ff4b93ff"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="false" />
+
+        <Button
+            android:layout_width="104dp"
+            android:layout_height="30dp"
+            android:text="Consultar"
+            android:id="@+id/btnConsulta"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_alignWithParentIfMissing="false"
+            android:textColor="#ffffffff"
+            android:textAlignment="center"
+            android:background="#ffff3a4c"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_alignTop="@+id/btnAtrasConsulta"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="btnConsultaOnClick"    />
+
+    </RelativeLayout>
+
+</LinearLayout>
