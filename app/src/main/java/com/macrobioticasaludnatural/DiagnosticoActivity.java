@@ -3,6 +3,8 @@ package com.macrobioticasaludnatural;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -50,16 +52,19 @@ public class DiagnosticoActivity extends Activity{
     private void updateEnfermedades ()throws Exception
     {
         TableRow auxRow;
-        TextView auxSintoma;
+        TextView auxEnfermedad;
         EspecialButton auxButton;
 
         for (String enfermedad : enfermedadesObtenidas)
         {
             auxRow = new TableRow(this);
-            auxSintoma = new TextView(this);
+            auxEnfermedad = new TextView(this);
+            auxEnfermedad.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 170, getResources().getDisplayMetrics()));
+            auxEnfermedad.setGravity(Gravity.CENTER);
+
             auxButton = new EspecialButton(this,enfermedad);
 
-            auxButton.setOnClickListener(new Button.OnClickListener() {
+            auxButton.setOnClickListener(new Button.OnClickListener() {    //evento boton enfermedad
                 public void onClick(View v) {
                     EspecialButton button = (EspecialButton)v;
                     TableLayout tbTratamiento = (TableLayout)findViewById(R.id.tbTratamiento);
@@ -81,8 +86,21 @@ public class DiagnosticoActivity extends Activity{
                         {
                             auxRow = new TableRow(button.getContext());
                             auxId = new TextView(button.getContext());
+                            auxId.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 70, getResources().getDisplayMetrics()));
+                            auxId.setGravity(Gravity.CENTER);
+
                             auxNombre = new TextView(button.getContext());
+                            auxNombre.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 120, getResources().getDisplayMetrics()));
+                            auxNombre.setGravity(Gravity.CENTER);
+
                             btnVer = new EspecialButton(button.getContext(),producto.get(0));
+                            btnVer.setOnClickListener(new Button.OnClickListener() { //evento boton Producto
+                                public void onClick(View v) {
+                                    EspecialButton button = (EspecialButton)v;
+                                    Intent nextActivity = new Intent(v.getContext(), DetalleProductoActivity.class);
+                                    nextActivity.putExtra("id",button.getOwner());
+                                    startActivity(nextActivity);
+                                }});
 
                             auxId.setText(producto.get(0));
                             auxNombre.setText(producto.get(1));
@@ -99,8 +117,8 @@ public class DiagnosticoActivity extends Activity{
                     }
                 }});
 
-            auxSintoma.setText(enfermedad);
-            auxRow.addView(auxSintoma);
+            auxEnfermedad.setText(enfermedad);
+            auxRow.addView(auxEnfermedad);
             auxRow.addView(auxButton);
 
             tbEnfermedades.addView(auxRow);

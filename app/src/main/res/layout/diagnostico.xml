@@ -105,7 +105,7 @@
         android:weightSum="1">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:text="ID"
             android:id="@+id/textView5"
@@ -118,7 +118,7 @@
             android:layout_weight="0.16" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="Producto"
             android:id="@+id/textView6"
@@ -131,7 +131,7 @@
             android:layout_weight="0.66" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:text="Ver"
             android:id="@+id/textView7"

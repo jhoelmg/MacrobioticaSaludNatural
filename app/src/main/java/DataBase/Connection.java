@@ -34,52 +34,15 @@ public class Connection {
         return obj;
     }
 
-
-    public Bitmap get() throws Exception{
-        String request = "http://macrobioticasaludnatural.uphero.com/WebService/main.php?consulta=3"
-                + "&producto=all";
-
-        JSONObject obj = new AsyncGetRequest(request).execute().get();
-        String imageURL = "";
-        Bitmap image = null;
-
-        int estado = obj.getInt("estado");
-        System.out.println(estado);
-        if(estado == 1){
-            JSONArray info = obj.getJSONArray("info");
-            for (int i = 0; i < info.length(); i++){
-                int producto = info.getJSONObject(i).getInt("idProducto");
-                String nombre = info.getJSONObject(i).getString("nombre");
-                String descripcion = info.getJSONObject(i).getString("descripcion");
-                double precio = info.getJSONObject(i).getDouble("precio");
-                imageURL = info.getJSONObject(i).getString("imagen");
-
-                System.out.println("ID producto : " + producto);
-                System.out.println("Nombre : " + nombre);
-                System.out.println("Descripción : " + descripcion);
-                System.out.println("Precio : " + precio);
-                System.out.println("URL imagen : " + imageURL);
-            }
-
-            image = new AsyncDownloadImage(imageURL).execute().get();
-
-            if(image == null) {
-                System.out.println("ERROOOOOOOOOOOOOOOOOOOOOOOOOOOR");
-                return null;
-            }
-            else {
-                System.out.println("I DID ITTTTTTTTTTTTTTT!!!");
-                return image;
-            }
-        }else{
-            String info = obj.getString("info");
-            System.out.println(info);
-            return null;
-            }
+    public Bitmap getImage(String imageURL) throws Exception
+    {
+        Bitmap image = new AsyncDownloadImage(imageURL).execute().get();
+        return image;
     }
 
 
 
+    //Async Tasks To get things from internet
 
     private class AsyncGetRequest extends AsyncTask<Void, Void, JSONObject> {
 

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="280dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/ivImagenProducto" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="160dp"
+            android:layout_height="130dp">
+
+            <TextView
+                android:layout_width="152dp"
+                android:layout_height="40dp"
+                android:text="New Text"
+                android:id="@+id/tvNombreProducto"
+                android:background="#12000000"
+                android:layout_gravity="center"
+                android:textSize="15dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:text="Agregar"
+                android:id="@+id/btnReservarProducto"
+                android:layout_marginTop="5dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp">
+
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="fill_parent"
+                    android:text="Like"
+                    android:id="@+id/btnLike"
+                    android:background="#45619d"
+                    android:textColor="#ffffffff"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp" />
+
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="fill_parent"
+                    android:text="Share"
+                    android:id="@+id/btnShare"
+                    android:layout_marginLeft="10dp"
+                    android:background="#45619d"
+                    android:textStyle="bold"
+                    android:textColor="#ffffffff" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="120dp"
+        android:text="New Text"
+        android:id="@+id/tvDescripcionProducto"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:background="#12000000"
+        android:gravity="center_vertical|center_horizontal" />
+
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:text="New Text"
+        android:id="@+id/tvPrecioProducto"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#12000000"
+        android:gravity="center_vertical|center_horizontal" />
+
+    <Button
+        android:layout_width="104dp"
+        android:layout_height="30dp"
+        android:text="Atrás"
+        android:id="@+id/btnAtrasProducto"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="#ff4b93ff"
+        android:textColor="#ffffffff" />
+</LinearLayout>
