@@ -4,6 +4,7 @@ package Controller;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import DataBase.Connection;
@@ -63,7 +64,15 @@ public class Requester {
         for(int index = 0; index < pSintomas.size(); index++)
         {
             auxSintoma = pSintomas.get(index).replace(" ","+");
-            request += auxSintoma;
+            //Arreglo temporal para obtener las palabras separadas por el +
+            String[] tmpArray = auxSintoma.split("\\+");
+            for (int i = 0; i < tmpArray.length; i++) {
+                if (i == tmpArray.length - 1)
+                    request += URLEncoder.encode(new String(tmpArray[i]), "utf-8");
+                else
+                    request += URLEncoder.encode(new String(tmpArray[i]), "utf-8") + "+";
+            }
+
             if (index < pSintomas.size()-1)
                 request += ",";
         }
@@ -96,7 +105,14 @@ public class Requester {
                 "&tratamiento=";
 
         auxEnfermedad = pEnfermedad.replace(" ", "+");
-        request += auxEnfermedad;
+        //Arreglo temporal para obtener las palabras separadas por el +
+        String[] tmpArray = auxEnfermedad.split("\\+");
+        for (int i = 0; i < tmpArray.length; i++) {
+            if (i == tmpArray.length - 1)
+                request += URLEncoder.encode(new String(tmpArray[i]), "utf-8");
+            else
+                request += URLEncoder.encode(new String(tmpArray[i]), "utf-8") + "+";
+        }
 
         JSONObject obj = connection.getObject(request);
 

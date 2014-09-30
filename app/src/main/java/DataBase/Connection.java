@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 
 import org.json.*;
 
@@ -97,8 +98,9 @@ public class Connection {
             try {
                 url = new URL(urlDirection);
                 conn = url.openConnection();
-                reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
                 String line;
+
                 while((line = reader.readLine()) != null)
                 {
                     System.out.println(line);

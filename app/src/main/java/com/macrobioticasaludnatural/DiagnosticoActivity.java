@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import java.net.URLDecoder;
 import java.util.ArrayList;
 
 import Controller.Requester;
@@ -91,7 +92,6 @@ public class DiagnosticoActivity extends Activity{
 
                             tbTratamiento.addView(auxRow);
                         }
-
                     }
                     catch(Exception e){
                         Toast.makeText(getApplicationContext(), "Error al cargar el tratamiento",
