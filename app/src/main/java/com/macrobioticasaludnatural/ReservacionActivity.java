@@ -178,4 +178,18 @@ public class ReservacionActivity extends Activity{
 
     }
 
+    public String getSelectedSucursal()
+    {
+        Spinner auxSpinner = (Spinner)findViewById(R.id.spSucursalesReserva);
+        String aux = auxSpinner.getSelectedItem().toString();
+        String idSucursal = aux.replaceAll("\\,.*","");
+        return idSucursal;
+
+    }
+    public void btnReservarProductosOnClick (View view)
+    {
+        String selectedSucursal = getSelectedSucursal();
+
+
+    }
 }

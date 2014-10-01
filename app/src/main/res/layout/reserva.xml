@@ -146,6 +146,7 @@
             android:layout_marginLeft="20dp"
             android:background="#ffff3a4c"
             android:textColor="#ffffffff"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:onClick="btnReservarProductosOnClick"/>
     </LinearLayout>
 </LinearLayout>
