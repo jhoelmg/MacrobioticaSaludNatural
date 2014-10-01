@@ -9,6 +9,13 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.model.GraphUser;
+import com.facebook.widget.WebDialog;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -18,24 +25,33 @@ public class MainActivity extends ActionBarActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE); //No Title
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //No Status Bar
         setContentView(R.layout.main_menu);
+        Session.openActiveSession(this, true, new Session.StatusCallback() {
+            @Override
+            public void call(Session session, SessionState state, Exception exception) {
+                if (session.isOpened()) {
+
+                    Request.newMeRequest(session, new Request.GraphUserCallback() {
+
+                        @Override
+                        public void onCompleted(GraphUser user, Response response) {
+                            if (user != null) {
+                                System.out.println("Bievenido " + user.getId() + "!");
+                            }
+                        }
+                    }).executeAsync();
+                }
+            }
+        });
     }
 
-
-    public void btnBuscarProductoOnClick (View view)
-    {
-        //this.finish();
-        startActivity(new Intent("com.macrobioticasaludnatural.BusquedaProductos"));
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
+        if(isLoggedIn())
+            startActivity(new Intent("com.macrobioticasaludnatural.LoggedInMenu"));
     }
 
-    public void btnLoginOnClick (View view)
-    {
-        //this.finish();
-        startActivity(new Intent("com.macrobioticasaludnatural.LoggedInMenu"));
-    }
-
-
-
-/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -53,5 +69,31 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }*/
+    }
+
+    public void btnBuscarProductoOnClick (View view)
+    {
+        //this.finish();
+        startActivity(new Intent("com.macrobioticasaludnatural.BusquedaProductos"));
+    }
+
+    public boolean isLoggedIn() {
+        Session session = Session.getActiveSession();
+        return (session != null && session.isOpened());
+    }
+
+    private void publishFeedDialog() {
+        Bundle params = new Bundle();
+        params.putString("Name", "Producto Macrobiótica Salud Natural");
+        params.putString("caption", "Comparte con tus amigos nuestros productos al mejor precio.");
+        params.putString("description", "Con Macrobiótica Salud Natural siempre tendrás al alcance todos los productos que tú y tu familia necesitan.");
+        //params.putString("link", "http://macrobioticasaludnatural.uphero.com");
+        //params.putString("picture", "http://macrobioticasaludnatural.uphero.com/images/calamina.png");
+
+        WebDialog feedDialog = (
+                new WebDialog.FeedDialogBuilder(MainActivity.this,
+                        Session.getActiveSession(),
+                        params)).build();
+        feedDialog.show();
+    }
 }
