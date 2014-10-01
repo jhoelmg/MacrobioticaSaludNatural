@@ -3,6 +3,7 @@ package DataBase;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -27,7 +28,6 @@ public class Connection {
         return connection;
     }
 
-
     public JSONObject getObject(String pUrl) throws Exception
     {
         JSONObject obj = new AsyncGetRequest(pUrl).execute().get();
@@ -39,6 +39,48 @@ public class Connection {
         Bitmap image = new AsyncDownloadImage(imageURL).execute().get();
         return image;
     }
+
+
+    public static void post() throws Exception{
+        //String urlParameters = "entregado=0&pacienteId=1&sucursalId=1";
+        //String request = "http://macrobioticasaludnatural.uphero.com/WebService/main.php?consulta=7";
+
+        String urlParameters = "productoId=1&cantidad=4";
+        String request = "http://macrobioticasaludnatural.uphero.com/WebService/main.php?consulta=8";
+
+        URL url = new URL(request);
+        URLConnection conn = url.openConnection();
+
+        conn.setDoOutput(true);
+
+        OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
+
+        writer.write(urlParameters);
+        writer.flush();
+
+        String line;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+
+            JSONObject obj = new JSONObject(line);
+            int estado = obj.getInt("estado");
+            String info = obj.getString("info");
+
+            System.out.println(estado);
+            System.out.println(info);
+        }
+        writer.close();
+        reader.close();
+    }
+
+
+
+
+
+
+
 
 
 

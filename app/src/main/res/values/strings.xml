@@ -5,6 +5,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="buscar_producto">Buscar Producto</string>
+    <string name="agregado_carretillo">Producto agregado al Carretillo de Reservaciones</string>
+    <string name="error_cargar_productos">Error al cargar la informacion del producto</string>
+    <string name="error_reservar_producto_facebook">Lo sentimos, esta opcion esta disponible solo para usuario de Facebook</string>
+
 
 
 </resources>

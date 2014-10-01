@@ -1,13 +1,11 @@
 package com.macrobioticasaludnatural;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,11 +13,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import Controller.Requester;
+import Controller.Usuario;
 
 public class DetalleProductoActivity extends Activity{
 
     private String idProducto;
     private Requester requester;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class DetalleProductoActivity extends Activity{
         setContentView(R.layout.detalle_producto);
 
         requester = Requester.getInstance();
+        usuario = Usuario.getInstance();
 
         try
         {
@@ -40,7 +41,7 @@ public class DetalleProductoActivity extends Activity{
         }
         catch (Exception e)
         {
-            Toast.makeText(getApplicationContext(), "Error al cargar la informacion del producto",
+            Toast.makeText(getApplicationContext(), R.string.error_cargar_productos,
                     Toast.LENGTH_SHORT).show();
         }
     }
@@ -62,9 +63,19 @@ public class DetalleProductoActivity extends Activity{
         auxImage = (ImageView)findViewById(R.id.ivImagenProducto);
         image = requester.getImage(productoInfo.get(3));
         auxImage.setImageBitmap(image);
-
-
     }
 
-
+    public void btnReservarProductoOnClick (View view)
+    {
+        if(usuario.getIdUsuario() != null) {
+            usuario.getReservas().add(idProducto);
+            Toast.makeText(getApplicationContext(), R.string.agregado_carretillo,
+                    Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(), R.string.error_reservar_producto_facebook,
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
 }

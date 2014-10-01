@@ -137,6 +137,40 @@ public class Requester {
         }
     }
 
+    public ArrayList<ArrayList<String>> getSucursales() throws Exception
+    {
+        String id = null;
+        String provincia = null;
+        String canton = null;
+
+        ArrayList<ArrayList<String>> sucursales = new ArrayList<ArrayList<String>>();
+        ArrayList<String> sucursal;
+        String request = "http://macrobioticasaludnatural.uphero.com/WebService/main.php?consulta=5" +
+                "&sucursal=all";
+
+        JSONObject obj = connection.getObject(request);
+
+        int estado = obj.getInt("estado");
+        if(estado == 1){
+            JSONArray info = obj.getJSONArray("info");
+            for (int i = 0; i < info.length(); i++){
+                id = info.getJSONObject(i).getString("codigo");
+                provincia = info.getJSONObject(i).getString("provincia");
+                canton = info.getJSONObject(i).getString("canton");
+                sucursal = new ArrayList<String>();
+                sucursal.add(id);
+                sucursal.add(provincia);
+                sucursal.add(canton);
+                sucursales.add(sucursal);
+            }
+            return sucursales;
+        }else{
+            String info = obj.getString("info");
+            System.out.println(info);
+            return null;
+        }
+    }
+
     public ArrayList<String> getProducto(String pIdProducto) throws Exception
     {
         String nombre;

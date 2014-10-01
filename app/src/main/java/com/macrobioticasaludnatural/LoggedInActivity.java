@@ -35,4 +35,10 @@ public class LoggedInActivity extends Activity{
         startActivity(new Intent("com.macrobioticasaludnatural.ReservacionCita"));
     }
 
+    public void btnReservacionesOnClick (View view)
+    {
+        //this.finish();
+        startActivity(new Intent("com.macrobioticasaludnatural.Reservacion"));
+    }
+
 }

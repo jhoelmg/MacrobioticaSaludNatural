@@ -17,7 +17,7 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/btnReservarCita"
         android:background="#ff4b93ff"
         android:textColor="#ffffffff"
@@ -39,7 +39,7 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/btnConsultaMedica"
         android:background="#ff4b93ff"
         android:textColor="#ffffffff"
@@ -61,7 +61,7 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/btnBuscarProducto"
         android:background="#ff4b93ff"
         android:textColor="#ffffffff"
@@ -81,24 +81,42 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp" />
 
-    <Button
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnLogout"
-        android:background="#ff4b93ff"
-        android:textColor="#ffffffff"
-        android:text="Cerrar Sesion"
-        android:textSize="15dp"
-        android:focusable="true"
-        android:clickable="true"
-        android:enabled="true"
-        android:height="30dp"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:width="150dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center">
+
+        <Button
+            android:layout_width="116dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnLogout"
+            android:background="#45619d"
+            android:textColor="#ffffffff"
+            android:text="Cerrar Sesion"
+            android:textSize="15dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:enabled="true"
+            android:height="30dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:width="150dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnReservaciones"
+            android:background="@drawable/reserva"
+            android:onClick="btnReservacionesOnClick"
+            android:layout_marginLeft="40dp" />
+    </LinearLayout>
+
 </LinearLayout>
