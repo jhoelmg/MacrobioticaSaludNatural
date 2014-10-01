@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.facebook.Request;
 import com.facebook.Response;
@@ -16,16 +17,20 @@ import com.facebook.SessionState;
 import com.facebook.model.GraphUser;
 import com.facebook.widget.WebDialog;
 
+import Controller.Usuario;
+
 
 public class MainActivity extends ActionBarActivity {
 
+    private Usuario usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //No Title
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //No Status Bar
         setContentView(R.layout.main_menu);
-        Session.openActiveSession(this, true, new Session.StatusCallback() {
+        usuario = Usuario.getInstance();
+        /*Session.openActiveSession(this, true, new Session.StatusCallback() {
             @Override
             public void call(Session session, SessionState state, Exception exception) {
                 if (session.isOpened()) {
@@ -41,15 +46,35 @@ public class MainActivity extends ActionBarActivity {
                     }).executeAsync();
                 }
             }
-        });
+        });*/
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
-        if(isLoggedIn())
+        if(isLoggedIn()) {
             startActivity(new Intent("com.macrobioticasaludnatural.LoggedInMenu"));
+            /*Session.openActiveSession(this, true, new Session.StatusCallback() {
+
+            @Override
+            public void call(Session session, SessionState state, Exception exception) {
+                if (session.isOpened()) {
+
+                    Request.newMeRequest(session, new Request.GraphUserCallback() {
+
+                        @Override
+                        public void onCompleted(GraphUser user, Response response) {
+                            if (user != null) {
+                                usuario.setIdUsuario(user.getId());
+                            }
+                        }
+                    }).executeAsync();
+                }
+            }
+        });*/
+
+        }
     }
 
     @Override

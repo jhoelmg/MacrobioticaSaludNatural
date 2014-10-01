@@ -10,7 +10,7 @@ public class Usuario {
 
     private Usuario ()
     {
-        idUsuario = "11111";
+        idUsuario = null;//"11111";
         reservas = new ArrayList<String>();
     }
 
@@ -21,6 +21,11 @@ public class Usuario {
             usuario = new Usuario();
         }
         return usuario;
+    }
+
+    public void setIdUsuario(String pId)
+    {
+        idUsuario = pId;
     }
 
     public ArrayList<String> getReservas()

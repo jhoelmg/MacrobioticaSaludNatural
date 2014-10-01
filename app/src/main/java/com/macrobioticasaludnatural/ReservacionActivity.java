@@ -189,6 +189,12 @@ public class ReservacionActivity extends Activity{
     public void btnReservarProductosOnClick (View view)
     {
         String selectedSucursal = getSelectedSucursal();
+        try {
+            requester.reservarProductos();
+        }
+        catch(Exception e){
+            System.out.print("ERROR AL RESERVAR PRODUCTO");
+        }
 
 
     }

@@ -171,6 +171,12 @@ public class Requester {
         }
     }
 
+
+    public void reservarProductos() throws Exception
+    {
+        connection.setProducto();
+    }
+
     public ArrayList<String> getProducto(String pIdProducto) throws Exception
     {
         String nombre;
